@@ -1,0 +1,129 @@
+
+INTRO:
+
+Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+
+Some portions adapted from xscreensaver loadsnake program and is
+portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>
+
+Licensed under the GNU Public License v2.
+
+Permission to use, copy, modify, distribute, and sell this software and its
+documentation for any purpose is hereby granted without fee, provided that
+the above copyright notice appear in all copies and that both that
+copyright notice and this permission notice appear in supporting
+documentation.  No representations are made about the suitability of
+this software for any purpose.  It is provided "as is" without express or
+implied warranty.
+
+NetWare SMP style worm screesnsaver for Linux using ncurses
+
+USAGE:  netware-worms [cpus|speedup]
+    i.e. worm cpus=<num=8 to 256> speedup=<divisor=1|2|3|4>
+examples:
+    netware-worms cpus=8;
+       start worm screensaver with 8 worm threads
+    netware-worms speedup=4
+       run worm screensaver at 4X speed
+
+This screensaver is built as both a dynamic shared object (*.so) and static
+archive format module (*.a) dynamic and static library module which allows
+other user space programs and consoles to invoke this screen saver as well
+as tmux, screen, and other BASH type programs setups.
+
+This screen saver uses ncurses and is text based which is identical
+to the Novell Netware SMP multi processor screensaver which displayed
+a color coded worm for each processor running.  As each processor load
+increases on a particular processor, the longer the worm becomes and
+the faster it moves across the screen corresponding to that particular
+processor.  As the overall system load average across the system increases,
+the base clock rate for all the worms increases slightly to indicate 
+load average is increasing.
+
+
+BUILD:
+
+You must have the ncurses-devel packages installed in order to make
+ncurses apps on your system.  you can try "yum install ncurses*" to get 
+all of the ncurses packages for RedHat and CentOS systems.  This version 
+was developed on a Red Hat 7 / CentOS 7 system. 
+
+to make, type:
+
+# make -f Makefile <enter>
+
+the build process should display:
+
+g++ -g -c -O3  -fPIC -Wall libnetware-screensaver.c 
+ar r libnetware-screensaver.a libnetware-screensaver.o  
+ar: creating libnetware-screensaver.a
+ld -shared -lc -o libnetware-screensaver.so libnetware-screensaver.o  
+g++ -g -O3 netware-worms.c -Wall -o netware-worms -lncursesw -lpthread libnetware-screensaver.a
+
+to perform a clean build:
+
+# make -f Makefile clean <enter>
+
+should display:
+
+rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
+
+
+INSTALLING/UNINSTALLING:
+
+To install:
+
+# make -f Makefile install <enter>
+
+should display:
+
+install -m 0755 netware-worms /usr/bin
+install -m 644 libnetware-screensaver.so /usr/lib
+install -m 644 libnetware-screensaver.a /usr/lib
+install -m 644 netware-worms.h /usr/include
+ldconfig
+ldconfig
+
+To uninstall:
+
+# make -f Makefile uninstall <enter>
+
+should display:
+
+rm -vf /usr/bin/netware-worms
+removed ‘/usr/bin/netware-worms’
+rm -vf /usr/lib/libnetware-screensaver.so
+removed ‘/usr/lib/libnetware-screensaver.so’
+rm -vf /usr/lib/libnetware-screensaver.a
+removed ‘/usr/lib/libnetware-screensaver.a’
+rm -vf /usr/include/netware-worms.h
+removed ‘/usr/include/netware-worms.h’
+ldconfig
+ldconfig
+
+RUNNING:
+
+you can execute the program directly as:
+
+# ./netware-worms <enter>
+
+you can also add arguments to force number of cpus and a speedup divisor
+
+# ./netware-worms cpus=8 speedup=4 <enter>
+
+
+USING LIBRARIES:
+
+You can also call the screensaver as a library function "netware_screensaver(cpus, speedup)"
+from another application with you own timer setup, just be sure to link to the
+ "-libnetware-screensaver" .so library in your linker statements or link to the static
+library "libnetware-screensaver.a"
+
+
+
+
+
+
+
+
+

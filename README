@@ -27,7 +27,7 @@ examples:
        run worm screensaver at 4X speed
 
 This screensaver is built as both a dynamic shared object (*.so) and static
-archive format module (*.a) dynamic and static library module which allows
+archive format module (*.a) static library module which allows
 other user space programs and consoles to invoke this screen saver as well
 as tmux, screen, and other BASH type programs setups.
 
@@ -115,7 +115,7 @@ you can also add arguments to force number of cpus and a speedup divisor
 USING LIBRARIES:
 
 You can also call the screensaver as a library function "netware_screensaver(cpus, speedup)"
-from another application with you own timer setup, just be sure to link to the
+from another application with your own timer setup, just be sure to link to the
  "-libnetware-screensaver" .so library in your linker statements or link to the static
 library "libnetware-screensaver.a"
 

@@ -1,0 +1,27 @@
+/***************************************************************************
+*
+*   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+*
+*   Portions adapted from xscreensaver loadsnake program is
+*   portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>
+*
+*   Permission to use, copy, modify, distribute, and sell this software and its
+*   documentation for any purpose is hereby granted without fee, provided that
+*   the above copyright notice appear in all copies and that both that
+*   copyright notice and this permission notice appear in supporting
+*   documentation.  No representations are made about the suitability of
+*   this software for any purpose.  It is provided "as is" without express or
+*   implied warranty.
+*
+*   NetWare SMP style worm screesnsaver for Linux using ncurses
+*
+*   USAGE:  netware-worms [cpus|speedup]
+*       i.e. worm cpus=<num=8 to 256> speedup=<divisor=1|2|3|4>
+*   examples:
+*       netware-worms cpus=8;
+*          start worm screensaver with 8 worm threads
+*       netware-worms speedup=4
+*          run worm screensaver at 4X speed
+*
+**************************************************************************/
+

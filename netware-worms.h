@@ -1,7 +1,8 @@
 /***************************************************************************
 *
 *   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
-*   Open CWorthy Look Alike Terminal Library.
+*
+*   Licensed under the GNU Public License v2.
 *
 *   NetWare SMP style worm screesnsaver for Linux using ncurses
 *

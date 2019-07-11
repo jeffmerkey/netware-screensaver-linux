@@ -707,7 +707,7 @@ static unsigned long run_worms(STATE *st)
     return st->delay;
 }
 
-int netware_screensaver(int cpus, int speedup)
+static int __netware_screensaver(int cpus, int speedup, int ncurses)
 {
     register int n, i;
     STATE state, *st = &state;
@@ -728,8 +728,10 @@ int netware_screensaver(int cpus, int speedup)
     else
        st->divisor = 1;
 
-    if (init_ncurses())
-       return 1;
+    if (ncurses) {
+       if (init_ncurses())
+          return 1;
+    }
 
     // initialize random number generator
     srand(time(0));
@@ -783,8 +785,18 @@ int netware_screensaver(int cpus, int speedup)
 
     if (st->worms)
        free(st->worms);
-
-    clear_ncurses();
+    if (ncurses)
+       clear_ncurses();
     return 0;
+}
+
+int cworthy_netware_screensaver(int cpus, int speedup)
+{
+   return (__netware_screensaver(cpus, speedup, 0));
+}
+
+int netware_screensaver(int cpus, int speedup)
+{
+   return (__netware_screensaver(cpus, speedup, 1));
 }
 

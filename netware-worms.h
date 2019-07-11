@@ -58,4 +58,3 @@ typedef struct _STATE
 } STATE;
 
 int netware_screensaver(int cpus, int speedup);
-

@@ -84,7 +84,7 @@ typedef unsigned char  BYTE;
 #define UP_CHAR         0x1E
 #define DOWN_CHAR       0x1F
 
-ULONG worm_chars[] =
+static ULONG worm_chars[] =
 {
    (219 | A_ALTCHARSET),
    (178 | A_ALTCHARSET),
@@ -92,7 +92,7 @@ ULONG worm_chars[] =
    (176 | A_ALTCHARSET),
 };
 
-ULONG worm_colors[]=
+static ULONG worm_colors[]=
 {
    (LTRED | BGBLACK),
    (BLUE | BGBLACK),
@@ -112,12 +112,12 @@ ULONG worm_colors[]=
    (CYAN | BGBLACK),
 };
 
-int has_color;
+static int has_color;
 
 //  Here we attempt to map the ncurses color pair numbers into
 //  something a little more PC friendly.
 
-int color_map[128]=
+static int color_map[128]=
 {
     1,  2,  3,  4,  5,  6,  7,  8, 8,  2,  3,  4,  5,  6,  7,  8,
     9, 10, 11, 12, 13, 14, 15, 16, 16, 10, 11, 12, 13, 14, 15, 16,
@@ -129,7 +129,7 @@ int color_map[128]=
    57, 58, 59, 60, 61, 62, 53, 64, 64, 58, 59, 60, 61, 62, 53, 64
 };
 
-int attr_map[128]=
+static int attr_map[128]=
 {
    0, 0, 0, 0, 0, 0, 0, A_BOLD, 0, A_BOLD, A_BOLD, A_BOLD,
    A_BOLD, A_BOLD, A_BOLD, A_BOLD,
@@ -707,7 +707,7 @@ static unsigned long run_worms(STATE *st)
     return st->delay;
 }
 
-static int __netware_screensaver(int cpus, int speedup, int ncurses)
+int netware_screensaver(int cpus, int speedup)
 {
     register int n, i;
     STATE state, *st = &state;
@@ -728,10 +728,8 @@ static int __netware_screensaver(int cpus, int speedup, int ncurses)
     else
        st->divisor = 1;
 
-    if (ncurses) {
-       if (init_ncurses())
-          return 1;
-    }
+    if (init_ncurses())
+       return 1;
 
     // initialize random number generator
     srand(time(0));
@@ -785,18 +783,8 @@ static int __netware_screensaver(int cpus, int speedup, int ncurses)
 
     if (st->worms)
        free(st->worms);
-    if (ncurses)
-       clear_ncurses();
+
+    clear_ncurses();
     return 0;
-}
-
-int cworthy_netware_screensaver(int cpus, int speedup)
-{
-   return (__netware_screensaver(cpus, speedup, 0));
-}
-
-int netware_screensaver(int cpus, int speedup)
-{
-   return (__netware_screensaver(cpus, speedup, 1));
 }
 

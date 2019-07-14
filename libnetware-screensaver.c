@@ -442,11 +442,11 @@ static void move_worm(STATE *st, WORM *s)
     {
         case 0: y++;      break;
         case 1: y++; x++; break;
-        case 2:      x++; break;
+        case 2:      x += 2; break;
         case 3: y--; x++; break;
         case 4: y--;      break;
         case 5: y--; x--; break;
-        case 6:      x--; break;
+        case 6:      x -= 2; break;
         case 7: y++; x--; break;
     }
 
@@ -526,11 +526,11 @@ static int grow_worm(STATE *st, WORM *s)
         switch(s->direction) {
             case 0: y--;      break;
             case 1: y--; x--; break;
-            case 2:      x--; break;
+            case 2:      x -= 2; break;
             case 3: y++; x--; break;
             case 4: y++;      break;
             case 5: y++; x++; break;
-            case 6:      x++; break;
+            case 6:      x += 2; break;
             case 7: y--; x++; break;
         }
         len++;

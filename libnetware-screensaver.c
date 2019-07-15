@@ -459,7 +459,7 @@ static void move_worm(STATE *st, WORM *s)
         y = 1;
         dir -= 4;
     }
-    else if (x >= (st->cols - 1) && (dir >= 1 && dir <= 3)) {
+    else if (x >= (st->cols - 2) && (dir >= 1 && dir <= 3)) {
         x = st->cols - 2;
         dir += 4;
     }

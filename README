@@ -1,6 +1,3 @@
-
-INTRO:
-
 Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
 
 Some portions adapted from xscreensaver loadsnake program and is
@@ -41,7 +38,7 @@ the base clock rate for all the worms increases slightly to indicate
 load average is increasing.
 
 
-BUILD:
+BUILD
 
 You must have the ncurses-devel packages installed in order to make
 ncurses apps on your system.  you can try "yum install ncurses*" to get 
@@ -69,7 +66,7 @@ should display:
 rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
 
 
-INSTALLING/UNINSTALLING:
+INSTALLING/UNINSTALLING
 
 To install:
 
@@ -101,7 +98,7 @@ removed ‘/usr/include/netware-worms.h’
 ldconfig
 ldconfig
 
-RUNNING:
+RUNNING
 
 you can execute the program directly as:
 
@@ -112,18 +109,10 @@ you can also add arguments to force number of cpus and a speedup divisor
 # ./netware-worms cpus=8 speedup=4 <enter>
 
 
-USING LIBRARIES:
+USING LIBRARIES
 
 You can also call the screensaver as a library function "netware_screensaver(cpus, speedup)"
 from another application with your own timer setup, just be sure to link to the
  "-lnetware-screensaver" .so library in your linker statements or link to the static
 library "libnetware-screensaver.a"
-
-
-
-
-
-
-
-
 

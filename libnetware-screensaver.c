@@ -168,10 +168,10 @@ static void clear_color(void)
 
 static int init_ncurses()
 {
-     register int i, pair;
+     register int i, pair, ret;
      unsigned long w;
      FILE *f;
-     char wait[100];
+     char wait[100], *s;
      int bg_colors[8]=
      {
         COLOR_BLACK, COLOR_BLUE, COLOR_GREEN, COLOR_CYAN,
@@ -229,16 +229,21 @@ static int init_ncurses()
      f = fopen("/sys/module/kernel/parameters/consoleblank", "r");
      if (f != NULL)
      {
-        fgets(wait, 98, f);
-        fclose(f);
-        sscanf(wait, "%lu", &w);
+        s = fgets(wait, 98, f);
+        if (s) {
+           sscanf(wait, "%lu", &w);
 #if VERBOSE
-	printf("console blank timer: %lu\n", w);
+	   printf("console blank timer: %lu\n", w);
 #endif
+	}
+	fclose(f);
      }
      // disable screen blanking
-     if (w)
-        system("setterm -blank 0");
+     if (w) {
+        ret = system("setterm -blank 0");
+        if (ret < 0)
+	   return ret;
+     }
      return 0;
 }
 
@@ -336,7 +341,7 @@ static int get_cpu_load(STATE *st, int cpu)
     static char line[100];
     int p_usr = 0, p_nice = 0, p_sys  = 0, p_idle = 0, load = 0, len;
     FILE *f;
-    char src[100] = "\0";
+    char src[100] = "\0", *s;
 
     if (cpu > st->cpus)
         return 0;
@@ -353,8 +358,8 @@ static int get_cpu_load(STATE *st, int cpu)
     {
         while (!feof(f) && !load)
 	{
-            fgets(line, 98, f);
-            if (!strncasecmp(src, line, len))
+            s = fgets(line, 98, f);
+            if (s && !strncasecmp(src, line, len))
 	    {
 		p_usr  = st->usr[cpu];
                 p_nice = st->nice[cpu];
@@ -399,7 +404,7 @@ static int get_cpu_load(STATE *st, int cpu)
 
 static int get_system_load(void)
 {
-    char load[100];
+    char load[100], *s;
     float l1 = 0;
     int l2 = 0;
     FILE *f;
@@ -407,12 +412,14 @@ static int get_system_load(void)
     f = fopen("/proc/loadavg", "r");
     if (f != NULL)
     {
-        fgets(load, 98, f);
-        fclose(f);
-        sscanf(load, "%f", &l1);
+        s = fgets(load, 98, f);
+        if (s) {
+           sscanf(load, "%f", &l1);
 #if VERBOSE
-        printw("Load from /proc/loadavg is %f\n", l1);
+           printw("Load from /proc/loadavg is %f\n", l1);
 #endif
+	}
+        fclose(f);
     }
     else
         l1 = 0;
@@ -709,7 +716,7 @@ static unsigned long run_worms(STATE *st)
 
 int netware_screensaver(int cpus, int speedup)
 {
-    register int n, i;
+    register int n, i, ret;
     STATE state, *st = &state;
 
     memset(st, 0, sizeof(STATE));
@@ -728,7 +735,8 @@ int netware_screensaver(int cpus, int speedup)
     else
        st->divisor = 1;
 
-    if (init_ncurses())
+    ret = init_ncurses();
+    if (ret < 0)
        return 1;
 
     // initialize random number generator

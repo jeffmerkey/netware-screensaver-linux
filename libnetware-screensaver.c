@@ -169,7 +169,7 @@ static void clear_color(void)
 static int init_ncurses()
 {
      register int i, pair, ret;
-     unsigned long w;
+     unsigned long w = 0;
      FILE *f;
      char wait[100], *s;
      int bg_colors[8]=

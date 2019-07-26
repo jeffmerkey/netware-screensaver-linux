@@ -111,7 +111,7 @@ static ULONG worm_colors[]=
    (GREEN | BGBLACK),
    (CYAN | BGBLACK),
 };
-
+static int worm_max_length = WORM_MAX_LEN;
 static int has_color;
 
 //  Here we attempt to map the ncurses color pair numbers into
@@ -393,7 +393,7 @@ static int get_cpu_load(STATE *st, int cpu)
 	fclose(f);
     }
 
-    len = load * load * WORM_MAX_LEN / 10000.0;
+    len = load * load * worm_max_length / 10000.0;
     if (len < WORM_MIN_LEN)
         len = WORM_MIN_LEN;
 #if VERBOSE
@@ -542,8 +542,8 @@ static int grow_worm(STATE *st, WORM *s)
         }
         len++;
 
-        if (len >= WORM_MAX_LEN)
-            len = WORM_MAX_LEN - 1;
+        if (len >= worm_max_length)
+            len = worm_max_length - 1;
 
         s->x[len] = x;
         s->y[len] = y;
@@ -675,7 +675,7 @@ static unsigned long run_worms(STATE *st)
            grow_worm(st, s);
            move_worm(st, s);
            clear_worm(st, s);
-           s->limit = 4 - (s->length / (WORM_MAX_LEN / 4));
+           s->limit = 4 - (s->length / (worm_max_length / 4));
 #if VERBOSE
            printw("length %d limit %d\n", s->length, s->limit);
 #endif
@@ -761,7 +761,7 @@ int netware_screensaver(int cpus, int speedup)
 	s->cpu  = n;
         s->x[0] = random() % (COLS - 1);
 	s->y[0] = random() % LINES;
-	for (i=1; i < WORM_MAX_LEN; i++)
+	for (i=1; i < worm_max_length; i++)
 	{
            s->x[i] = s->x[0];
            s->y[i] = s->y[0];

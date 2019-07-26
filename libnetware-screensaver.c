@@ -761,7 +761,7 @@ int netware_screensaver(int cpus, int speedup)
 	s->cpu  = n;
         s->x[0] = random() % (COLS - 1);
 	s->y[0] = random() % LINES;
-	for (i=1; i < worm_max_length; i++)
+	for (i=1; i < WORM_MAX_LEN; i++)
 	{
            s->x[i] = s->x[0];
            s->y[i] = s->y[0];

@@ -21,6 +21,12 @@
 #define WORM_TAIL_LEN   3
 #define MAX_WORMS      64
 
+#define AREA_BASE_LEN  (WORM_MAX_LEN / 2)
+#define AREA_LINES     64
+#define AREA_COLS     160
+#define AREA_RANGE    ((AREA_COLS * AREA_LINES) / AREA_BASE_LEN)
+#define AREA          (COLS * LINES)
+
 #define MAX_LOADAVG   100
 #define MAX_NANOSEC   100000000
 #define MIN_NANOSEC   10000000

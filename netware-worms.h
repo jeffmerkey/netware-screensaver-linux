@@ -21,11 +21,23 @@
 #define WORM_TAIL_LEN   3
 #define MAX_WORMS      64
 
-#define AREA_BASE_LEN  (WORM_MAX_LEN / 2)
-#define AREA_LINES     64
-#define AREA_COLS     160
-#define AREA_RANGE    ((AREA_COLS * AREA_LINES) / AREA_BASE_LEN)
-#define AREA          (COLS * LINES)
+// adjust worm total length based on screen area size.  smaller
+// displays have shorter worms.  the current logic adjusts for
+// worm speedup based on the current max worm length.  Here we
+// check a min and max screen area for worm length expansion.
+
+#define AREA_BASE_LEN   (WORM_MAX_LEN / 2)
+#define AREA_MINLINES   19
+#define AREA_MINCOLS    80
+#define AREA_MIN        (AREA_MINLINES * AREA_MINCOLS)
+#define AREA_MAXLINES   64
+#define AREA_MAXCOLS    160
+#define AREA_MAX        (AREA_MAXLINES * AREA_MAXCOLS)
+#define AREA            ((COLS * LINES) < (AREA_MINLINES * AREA_MINCOLS) \
+			 ? (AREA_MINLINES * AREA_MINCOLS) : (COLS * LINES))
+#define AREA_DIVISOR    ((AREA_MAX - AREA_MIN) / AREA_BASE_LEN)
+#define AREA_EXT_LEN    ((AREA - (AREA_MIN)) / (AREA_DIVISOR)) % \
+			(AREA_BASE_LEN + 1)
 
 #define MAX_LOADAVG   100
 #define MAX_NANOSEC   100000000

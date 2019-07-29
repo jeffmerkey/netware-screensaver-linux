@@ -624,9 +624,9 @@ length 36 div 9 mod 0 (div + 1) * mod = 00  0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 
 
 */
 
-static void draw_worm(STATE *st, WORM *s)
+static void save_worm(WORM *s)
 {
-    int n, div, mod, c;
+    int n;
 
     // save last worm position and coordinates
     // for clearing later
@@ -635,6 +635,11 @@ static void draw_worm(STATE *st, WORM *s)
         s->y_prev[n] = s->y[n];
     }
     s->length_prev = s->length;
+}
+
+static void draw_worm(STATE *st, WORM *s)
+{
+    int n, div, mod, c;
 
     // get character interval and draw worm it is
     // assumed that the minimum worm length is 4
@@ -663,7 +668,10 @@ static unsigned long run_worms(STATE *st)
     register float range, increment;
     int n;
 
-    // reset columns and lines in case the screenw was resized
+    // reset columns and lines in case the screen was resized
+    worm_max_length = AREA_BASE_LEN + AREA_EXT_LEN;
+    if (worm_max_length > WORM_MAX_LEN)
+       worm_max_length = WORM_MAX_LEN;
     st->cols = COLS;
     st->rows = LINES;
 
@@ -680,6 +688,7 @@ static unsigned long run_worms(STATE *st)
            printw("length %d limit %d\n", s->length, s->limit);
 #endif
 	}
+        save_worm(s);
 
         // update all worms even those sleeping to
 	// maintain worm overwrite stacking order
@@ -742,8 +751,19 @@ int netware_screensaver(int cpus, int speedup)
     // initialize random number generator
     srand(time(0));
 
+#if VERBOSE
+    printw("cols: %d lines: %d base: %d len: %d area: %d"
+	   " max: %d min: %d adj: %d divisor: %d\n",
+       COLS, LINES, AREA_BASE_LEN, AREA_EXT_LEN, AREA,
+       AREA_MAX, AREA_MIN, (AREA) - (AREA_MIN), AREA_DIVISOR);
+#endif
+
+    worm_max_length = AREA_BASE_LEN + AREA_EXT_LEN;
+    if (worm_max_length > WORM_MAX_LEN)
+       worm_max_length = WORM_MAX_LEN;
     st->cols = COLS;
     st->rows = LINES;
+
 #ifdef NANOSLEEP
     st->delay = MAX_NANOSEC / st->divisor;
 #else

@@ -108,6 +108,47 @@ you can also add arguments to force number of cpus and a speedup divisor
 
 # ./netware-worms cpus=8 speedup=4 <enter>
 
+INSTALLING SCREENSAVER IN THE BASH SHELL
+
+To install the screensaver as a bash program which auto activates, use the program called
+"screen" coupled with Bash.  The "screen" program has support for adding and invoking
+terminal based screesnavers under Bash.
+
+You can install the program on CentOS and RHEL with yum by
+typing "yum install screen" if the program is not installed by default.  You will need
+to create a .screenrc file in the user home directory (i.e. ~/.screenrc)
+which contains the following commands:
+
+Sample ~/.screenrc
+------------------
+blankerprg netware-worms
+idle 60 blanker
+
+Please note the idle command which specifies how many seconds to delay before invoking
+the screensaver (in this example it is 60 seconds)
+
+You also need to modify the ~/.bash_profile default bash configuation file to invoke
+screen by default after login.  Add the following command to the ~/.bash_profile
+config file:
+
+Sample ~/.bash_profile
+----------------------
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+# User specific environment and startup programs
+PATH=$PATH:$HOME/bin
+export PATH
+/bin/screen  <------------ add this line to the default .bash_profile config file.
+
+After you have configured these two files, logout and log back into the system for
+whichever account you have enabled and the screensaver will auto-activate after 
+60 seconds of idle time.  The only disadvantage to using this method to enable 
+a terminal based screensaver is you will need to type the "exit" command twice 
+in order to logout of the session. 
+
 
 USING LIBRARIES
 

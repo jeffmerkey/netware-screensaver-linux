@@ -28,7 +28,7 @@ archive format module (*.a) library module which allows other user space
 programs and consoles to invoke this screen saver as well as tmux, screen,
 and other BASH type programs setups.
 
-This screen saver uses ncurses and is text based which is identical
+This screensaver uses ncurses and is text based which is identical
 to the Novell Netware SMP multi processor screensaver which displayed
 a color coded worm for each processor running.  As each processor load
 increases on a particular processor, the longer the worm becomes and
@@ -112,7 +112,7 @@ INSTALLING SCREENSAVER IN THE BASH SHELL
 
 To install the screensaver as a bash program which auto activates, use the program called
 "screen" coupled with Bash.  The "screen" program has support for adding and invoking
-terminal based screesnavers under Bash.
+terminal based screensavers under Bash.
 
 You can install the program on CentOS and RHEL with yum by
 typing "yum install screen" if the program is not installed by default.  You will need

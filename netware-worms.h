@@ -2,7 +2,7 @@
 *
 *   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
 *
-*   Licensed under the GNU Public License v2.
+*   Licensed under the Lesser GNU Public License (LGPL) v2.1.
 *
 *   NetWare SMP style worm screesnsaver for Linux using ncurses
 *

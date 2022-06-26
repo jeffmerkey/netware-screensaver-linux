@@ -60,7 +60,7 @@ modules.builtin
 #
 # RPM spec file (make rpm-pkg)
 #
-/*.spec
+#/*.spec
 
 #
 # Debian directory (make deb-pkg)

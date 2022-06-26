@@ -36,18 +36,18 @@ clean:
 utilities: $(UTILFILES)
 
 install: utilities
-	install -m 0755 netware-worms /usr/bin
-	install -m 0755 libnetware-screensaver.so /usr/lib
-	install -m 644 libnetware-screensaver.a /usr/lib
-	install -m 644 netware-worms.h /usr/include
+	install -m 0755 netware-worms $(DESTDIR)/usr/bin
+	install -m 0755 libnetware-screensaver.so $(DESTDIR)/usr/lib
+	install -m 644 libnetware-screensaver.a $(DESTDIR)/usr/lib
+	install -m 644 netware-worms.h $(DESTDIR)/usr/include
 	ldconfig
 	ldconfig
 
 uninstall: 
-	rm -vf /usr/bin/netware-worms
-	rm -vf /usr/lib/libnetware-screensaver.so
-	rm -vf /usr/lib/libnetware-screensaver.a
-	rm -vf /usr/include/netware-worms.h
+	rm -vf $(DESTDIR)/usr/bin/netware-worms
+	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.so
+	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.a
+	rm -vf $(DESTDIR)/usr/include/netware-worms.h
 	ldconfig
 	ldconfig
 

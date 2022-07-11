@@ -16,6 +16,12 @@ U_CFLAGS_LIBP = -g -c -O3
 LD = ld
 AR = ar
 
+ifeq ($(NOCHK),1)
+LDCONFIG = 
+else
+LDCONFIG = ldconfig
+endif
+
 all : utilities
 
 libnetware-screensaver.so: libnetware-screensaver.o 
@@ -40,15 +46,14 @@ install: utilities
 	install -m 0755 libnetware-screensaver.so $(DESTDIR)/usr/lib
 	install -m 644 libnetware-screensaver.a $(DESTDIR)/usr/lib
 	install -m 644 netware-worms.h $(DESTDIR)/usr/include
-	ldconfig
-	ldconfig
+	$(LDCONFIG)
+	$(LDCONFIG)
 
 uninstall: 
 	rm -vf $(DESTDIR)/usr/bin/netware-worms
 	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.so
 	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.a
 	rm -vf $(DESTDIR)/usr/include/netware-worms.h
-	ldconfig
-	ldconfig
-
+	$(LDCONFIG)
+	$(LDCONFIG)
 

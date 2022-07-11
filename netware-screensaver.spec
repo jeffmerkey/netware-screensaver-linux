@@ -4,7 +4,7 @@
 Summary:          Netware SMP Style Screensaver for Linux
 License:          LGPL
 Name:             netware-screensaver
-Version:          1.16
+Version:          1.19
 Release:          1%{?dist}
 
 URL:              https://www.github.com/jeffmerkey/netware-screensaver-linux
@@ -29,16 +29,20 @@ The %{name} package contains the Netware SMP screensaver for Linux.
 %{__mkdir_p} %{buildroot}%{_includedir}
 %{__mkdir_p} %{buildroot}/usr/lib
 %{__make} \
-	DESTDIR=%{buildroot} \
+	DESTDIR=%{buildroot} NOCHK=1\
 	install
 
 %pre
 
 %post
+/sbin/ldconfig
+/sbin/ldconfig
 
 %preun
 
 %postun
+/sbin/ldconfig
+/sbin/ldconfig
 
 %files
 %defattr(-,root,root)

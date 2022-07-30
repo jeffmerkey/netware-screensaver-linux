@@ -34,7 +34,7 @@ libnetware-screensaver.o: libnetware-screensaver.c $(INCLUDES)
 	$(U_CCP) $(U_CFLAGS_LIBP) -fPIC -Wall libnetware-screensaver.c 
 
 netware-worms: netware-worms.c libnetware-screensaver.a $(INCLUDES)
-	$(U_CCP) $(U_CFLAGSP) netware-worms.c -Wall -o netware-worms -lncursesw -lpthread libnetware-screensaver.a
+	$(U_CCP) $(U_CFLAGSP) netware-worms.c -Wall -o netware-worms -lncursesw -lpthread libnetware-screensaver.a -ltinfo
 
 clean:
 	rm -rf *.o $(UTILFILES)

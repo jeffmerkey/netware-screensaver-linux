@@ -44,7 +44,7 @@
 
 int main(int argc, char *argv[])
 {
-    register int i, cpus, speedup, ret;
+    int i, cpus, speedup, ret;
 
     for (i=0, cpus=0, speedup=0; i < argc && argv[i]; i++)
     {

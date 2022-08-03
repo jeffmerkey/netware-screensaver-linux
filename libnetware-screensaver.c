@@ -168,7 +168,7 @@ static void clear_color(void)
 
 static int init_ncurses()
 {
-     register int i, pair, ret;
+     int i, pair, ret;
      unsigned long w = 0;
      FILE *f;
      char wait[100], *s;
@@ -665,7 +665,7 @@ static void draw_worm(STATE *st, WORM *s)
 
 static unsigned long run_worms(STATE *st)
 {
-    register float range, increment;
+    float range, increment;
     int n;
 
     // reset columns and lines in case the screen was resized
@@ -725,7 +725,7 @@ static unsigned long run_worms(STATE *st)
 
 int netware_screensaver(int cpus, int speedup)
 {
-    register int n, i, ret;
+    int n, i, ret;
     STATE state, *st = &state;
 
     memset(st, 0, sizeof(STATE));

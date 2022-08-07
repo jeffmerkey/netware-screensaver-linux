@@ -15,11 +15,25 @@ U_CFLAGSP = -g -O3
 U_CFLAGS_LIBP = -g -c -O3 
 LD = ld
 AR = ar
+LDCONFIG = ldconfig
+LIBS = /usr/lib
+INCS = /usr/include
+BIN = /usr/bin
+
+ifdef LIBDIR
+LIBS = $(LIBDIR)
+endif
+
+ifdef INCDIR
+INCS = $(INCDIR)
+endif
+
+ifdef BINDIR
+BIN = $(BINDIR)
+endif
 
 ifeq ($(NOCHK),1)
 LDCONFIG = 
-else
-LDCONFIG = ldconfig
 endif
 
 all : utilities
@@ -42,18 +56,18 @@ clean:
 utilities: $(UTILFILES)
 
 install: utilities
-	install -m 0755 netware-worms $(DESTDIR)/usr/bin
-	install -m 0755 libnetware-screensaver.so $(DESTDIR)/usr/lib
-	install -m 644 libnetware-screensaver.a $(DESTDIR)/usr/lib
-	install -m 644 netware-worms.h $(DESTDIR)/usr/include
+	install -m 0755 netware-worms $(DESTDIR)$(BIN)
+	install -m 0755 libnetware-screensaver.so $(DESTDIR)$(LIBS)
+	install -m 644 libnetware-screensaver.a $(DESTDIR)$(LIBS)
+	install -m 644 netware-worms.h $(DESTDIR)$(INCS)
 	$(LDCONFIG)
 	$(LDCONFIG)
 
 uninstall: 
-	rm -vf $(DESTDIR)/usr/bin/netware-worms
-	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.so
-	rm -vf $(DESTDIR)/usr/lib/libnetware-screensaver.a
-	rm -vf $(DESTDIR)/usr/include/netware-worms.h
+	rm -vf $(DESTDIR)$(BIN)/netware-worms
+	rm -vf $(DESTDIR)$(LIBS)/libnetware-screensaver.so
+	rm -vf $(DESTDIR)$(LIBS)/libnetware-screensaver.a
+	rm -vf $(DESTDIR)$(INCS)/netware-worms.h
 	$(LDCONFIG)
 	$(LDCONFIG)
 

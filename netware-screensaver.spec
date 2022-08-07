@@ -27,28 +27,29 @@ The %{name} package contains the Netware SMP screensaver for Linux.
 %{__mkdir_p} %{buildroot}%{_sbindir}
 %{__mkdir_p} %{buildroot}%{_bindir}
 %{__mkdir_p} %{buildroot}%{_includedir}
-%{__mkdir_p} %{buildroot}/usr/lib
+%{__mkdir_p} %{buildroot}%{_libdir}
 %{__make} \
-	DESTDIR=%{buildroot} NOCHK=1\
+	DESTDIR=%{buildroot} NOCHK=1 LIBDIR=%{_libdir} \
+	INCDIR=%{_includedir} BINDIR=%{_bindir} \
 	install
 
 %pre
 
 %post
-/sbin/ldconfig
-/sbin/ldconfig
+%{_sbindir}/ldconfig
+%{_sbindir}/ldconfig
 
 %preun
 
 %postun
-/sbin/ldconfig
-/sbin/ldconfig
+%{_sbindir}/ldconfig
+%{_sbindir}/ldconfig
 
 %files
 %defattr(-,root,root)
 %{_bindir}/netware-worms
 %{_includedir}/netware-worms.h
-/usr/lib/libnetware-screensaver.a
-/usr/lib/libnetware-screensaver.so
+%{_libdir}/libnetware-screensaver.a
+%{_libdir}/libnetware-screensaver.so
 
 %changelog

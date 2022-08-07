@@ -20,6 +20,17 @@ LIBS = /usr/lib
 INCS = /usr/include
 BIN = /usr/bin
 
+ARCH := $(shell uname -m)
+ifeq ($(ARCH), x86_64)
+LIBS = /usr/lib64
+endif
+ifeq ($(ARCH), aarch64)
+LIBS = /usr/lib64
+endif
+ifeq ($(ARCH), i686)
+LIBS = /usr/lib
+endif
+
 ifdef LIBDIR
 LIBS = $(LIBDIR)
 endif

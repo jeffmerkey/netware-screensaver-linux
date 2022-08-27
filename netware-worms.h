@@ -69,10 +69,16 @@ typedef struct _STATE
     int divisor;
     int rows;
     int cols;
-    int usr[MAX_WORMS];
-    int sys[MAX_WORMS];
-    int nice[MAX_WORMS];
-    int idle[MAX_WORMS];
+    unsigned long long usr[MAX_WORMS];
+    unsigned long long sys[MAX_WORMS];
+    unsigned long long nice[MAX_WORMS];
+    unsigned long long idle[MAX_WORMS];
+    unsigned long long io[MAX_WORMS];
+    unsigned long long irq[MAX_WORMS];
+    unsigned long long sirq[MAX_WORMS];
+    unsigned long long steal[MAX_WORMS];
+    unsigned long long guest[MAX_WORMS];
+    unsigned long long guest_nice[MAX_WORMS];
     WORM *worms;
 } STATE;
 

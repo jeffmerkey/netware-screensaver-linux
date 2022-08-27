@@ -338,10 +338,12 @@ static int get_processors(void)
 
 static int get_cpu_load(STATE *st, int cpu)
 {
-    static char line[100];
+    static char line[100], *s;
     int p_usr = 0, p_nice = 0, p_sys  = 0, p_idle = 0, load = 0, len;
+    unsigned long long p_io = 0, p_irq = 0, p_sirq = 0;
+    unsigned long long p_steal = 0, p_guest = 0, p_guest_nice = 0;
     FILE *f;
-    char src[100] = "\0", *s;
+    char src[100] = "\0";
 
     if (cpu > st->cpus)
         return 0;
@@ -365,14 +367,31 @@ static int get_cpu_load(STATE *st, int cpu)
                 p_nice = st->nice[cpu];
                 p_sys  = st->sys [cpu];
                 p_idle = st->idle[cpu];
+                p_io = st->io[cpu];
+                p_irq = st->irq[cpu];
+                p_sirq = st->sirq[cpu];
+                p_steal = st->steal[cpu];
+                p_guest = st->guest[cpu];
+                p_guest_nice = st->guest_nice[cpu];
 
-                if (sscanf(&line[len + 1], "%d %d %d %d",
+                if (sscanf(&line[len + 1], "%llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
 			   &(st->usr[cpu]), &(st->nice[cpu]),
-			   &(st->sys[cpu]), &(st->idle[cpu])) == 4)
+			   &(st->sys[cpu]), &(st->idle[cpu]),
+			   &(st->io[cpu]), &(st->irq[cpu]),
+			   &(st->sirq[cpu]), &(st->steal[cpu]),
+                           &(st->guest[cpu]), &(st->guest_nice[cpu])) == 10)
 		{
 		    // calculate total cycles
-                    load = st->usr[cpu] - p_usr + st->nice[cpu] - p_nice
-			    + st->sys[cpu] - p_sys + st->idle[cpu] - p_idle;
+                    load = st->usr[cpu] - p_usr +
+                           st->nice[cpu] - p_nice +
+                           st->sys[cpu] - p_sys +
+                           st->idle[cpu] - p_idle +
+                           st->io[cpu] - p_io +
+                           st->irq[cpu] - p_irq +
+                           st->sirq[cpu] - p_sirq +
+                           st->steal[cpu] - p_steal +
+                           st->guest[cpu] - p_guest +
+                           st->guest_nice[cpu] - p_guest_nice;
 
 		    // prevent divide by zero if result is 0
 		    if (!load)

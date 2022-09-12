@@ -394,7 +394,7 @@ static int get_cpu_load(STATE *st, int cpu)
 		    // Guest time is already accounted in usertime
 		    user = st->usr[cpu] - st->guest[cpu];     
 		    nice = st->nice[cpu] - st->guest_nice[cpu];
-		    // io is added in the idleTime
+		    // io is added in the total idle time
                     idletime = st->idle[cpu] + st->io[cpu];
                     systime = st->sys[cpu] + st->irq[cpu] + st->sirq[cpu];
                     virtalltime = st->guest[cpu] + st->guest_nice[cpu];
@@ -404,7 +404,7 @@ static int get_cpu_load(STATE *st, int cpu)
 		    // Guest time is already accounted in usertime
 		    user = p_usr - p_guest;     
 		    nice = p_nice - p_guest_nice;
-		    // io is added in the idleTime
+		    // io is added in the total idle time
                     deltaidle = p_idle + p_io;
                     systime = p_sys + p_irq + p_sirq;
                     virtalltime = p_guest + p_guest_nice;

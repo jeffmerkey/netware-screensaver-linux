@@ -1,6 +1,6 @@
 /***************************************************************************
 *
-*   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+*   Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.
 *
 *   Portions adapted from xscreensaver loadsnake program is
 *   portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>
@@ -339,7 +339,8 @@ static int get_processors(void)
 static int get_cpu_load(STATE *st, int cpu)
 {
     static char line[100], *s;
-    int p_usr = 0, p_nice = 0, p_sys  = 0, p_idle = 0, load = 0, len;
+    unsigned long long p_usr = 0, p_nice = 0, p_sys  = 0, p_idle = 0;
+    unsigned long long load = 0, idle = 0, util = 0, len;
     unsigned long long p_io = 0, p_irq = 0, p_sirq = 0;
     unsigned long long p_steal = 0, p_guest = 0, p_guest_nice = 0;
     FILE *f;
@@ -382,24 +383,44 @@ static int get_cpu_load(STATE *st, int cpu)
                            &(st->guest[cpu]), &(st->guest_nice[cpu])) == 10)
 		{
 		    // calculate total cycles
-                    load = st->usr[cpu] - p_usr +
-                           st->nice[cpu] - p_nice +
-                           st->sys[cpu] - p_sys +
-                           st->idle[cpu] - p_idle +
-                           st->io[cpu] - p_io +
-                           st->irq[cpu] - p_irq +
-                           st->sirq[cpu] - p_sirq +
-                           st->steal[cpu] - p_steal +
-                           st->guest[cpu] - p_guest +
-                           st->guest_nice[cpu] - p_guest_nice;
+		    unsigned long long user, nice;
+	            unsigned long long idletime;
+	            unsigned long long deltaidle;
+	            unsigned long long systime;
+	            unsigned long long virtalltime;
+	            unsigned long long totaltime;
+	            unsigned long long deltatime;
 
+		    // Guest time is already accounted in usertime
+		    user = st->usr[cpu] - st->guest[cpu];     
+		    nice = st->nice[cpu] - st->guest_nice[cpu];
+		    // io is added in the idleTime
+                    idletime = st->idle[cpu] + st->io[cpu];
+                    systime = st->sys[cpu] + st->irq[cpu] + st->sirq[cpu];
+                    virtalltime = st->guest[cpu] + st->guest_nice[cpu];
+                    totaltime = user + nice + systime + idletime + 
+                                st->steal[cpu] + virtalltime;
+
+		    // Guest time is already accounted in usertime
+		    user = p_usr - p_guest;     
+		    nice = p_nice - p_guest_nice;
+		    // io is added in the idleTime
+                    deltaidle = p_idle + p_io;
+                    systime = p_sys + p_irq + p_sirq;
+                    virtalltime = p_guest + p_guest_nice;
+                    deltatime = user + nice + systime + deltaidle + 
+                                  p_steal + virtalltime;
+
+                    load = totaltime - deltatime;
+                    idle = idletime - deltaidle;
 		    // prevent divide by zero if result is 0
 		    if (!load)
                         load = 1;
 
 		    // subtract idle cycles from load and mulitply * 100
 		    // to express as percentage
-		    load = (load - (st->idle[cpu] - p_idle)) * 100 / load;
+		    util = (load - idle) * 100 / load;
+		    idle = idle * 100 / load;
                     break;
                 }
                 else
@@ -412,11 +433,13 @@ static int get_cpu_load(STATE *st, int cpu)
 	fclose(f);
     }
 
-    len = load * load * worm_max_length / 10000.0;
+    len = util * util * worm_max_length / 10000.0;
     if (len < WORM_MIN_LEN)
         len = WORM_MIN_LEN;
 #if VERBOSE
-    printw("Load on cpu %d is %d%% length %d\n", cpu, load, len);
+    set_color(WHITE | BGBLACK);
+    mvprintw(cpu, 2, "Load on cpu %d is %d%% length %d idle %d%%\n", cpu, util, len, idle);
+    clear_color();
 #endif
     return (len);
 }

@@ -765,6 +765,9 @@ static unsigned long run_worms(STATE *st)
     return st->delay;
 }
 
+#include <sys/time.h>
+#include <sys/resource.h>
+
 int netware_screensaver(int cpus, int speedup)
 {
     int n, i, ret;
@@ -774,6 +777,9 @@ int netware_screensaver(int cpus, int speedup)
     st->cpus = get_processors();
     if (!st->cpus)
        exit(1);
+
+    // set nice value to hishest priority
+    setpriority(PRIO_PROCESS, 0, -20);
 
     if (cpus > st->cpus)
        st->cpus = cpus;

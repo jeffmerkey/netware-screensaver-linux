@@ -770,7 +770,7 @@ static unsigned long run_worms(STATE *st)
 
 int netware_screensaver(int cpus, int speedup)
 {
-    int n, i, ret;
+    int n, i, ret. prio = 0;
     STATE state, *st = &state;
 
     memset(st, 0, sizeof(STATE));
@@ -779,6 +779,7 @@ int netware_screensaver(int cpus, int speedup)
        exit(1);
 
     // set nice value to highest priority
+    prio = getpriority(PRIO_PROCESS, 0);
     setpriority(PRIO_PROCESS, 0, -20);
 
     if (cpus > st->cpus)
@@ -860,6 +861,7 @@ int netware_screensaver(int cpus, int speedup)
        free(st->worms);
 
     clear_ncurses();
+    setpriority(PRIO_PROCESS, 0, prio);
     return 0;
 }
 

@@ -770,7 +770,7 @@ static unsigned long run_worms(STATE *st)
 
 int netware_screensaver(int cpus, int speedup)
 {
-    int n, i, ret. prio = 0;
+    int n, i, ret, prio = 0;
     STATE state, *st = &state;
 
     memset(st, 0, sizeof(STATE));

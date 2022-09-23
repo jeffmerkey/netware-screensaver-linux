@@ -778,7 +778,7 @@ int netware_screensaver(int cpus, int speedup)
     if (!st->cpus)
        exit(1);
 
-    // set nice value to hishest priority
+    // set nice value to highest priority
     setpriority(PRIO_PROCESS, 0, -20);
 
     if (cpus > st->cpus)

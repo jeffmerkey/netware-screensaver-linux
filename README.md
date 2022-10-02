@@ -113,7 +113,7 @@ debbuild -i netware-screensaver-1.21-1.sdeb
 ```
 *(Note: Debbuild installs the source code files in /root/debbuild/ as top directory)*
 
-For building or rebuilding RPMS or DEB Packages after you have installed them on your platform, , please refer to the following:
+For building or rebuilding RPMS or DEB Packages after you have installed them on your platform, refer to the following:
 
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
@@ -126,13 +126,11 @@ all of the ncurses packages for RedHat and CentOS systems.  This version
 was developed on a Red Hat 7 / CentOS 7 system. 
 
 to make, type:
-
 ```sh
 make -f Makefile <enter>
 ```
 
 the build process should display:
-
 ```sh
 g++ -g -c -O3  -fPIC -Wall libnetware-screensaver.c 
 ar r libnetware-screensaver.a libnetware-screensaver.o  
@@ -142,13 +140,11 @@ g++ -g -O3 netware-worms.c libnetware-screensaver.a -Wall -o netware-worms -lncu
 ```
 
 to perform a clean build:
-
 ```sh
 make -f Makefile clean <enter>
 ```
 
 should display:
-
 ```sh
 rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
 ```
@@ -156,13 +152,11 @@ rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
 ## Installing and Uninstalling the Screensaver from Source
 
 To install:
-
 ```sh
 make -f Makefile install <enter>
 ```
 
 should display:
-
 ```sh
 install -m 0755 netware-worms /usr/bin
 install -m 0755 libnetware-screensaver.so /usr/lib64
@@ -173,13 +167,11 @@ ldconfig
 ```
 
 To uninstall:
-
 ```sh
 make -f Makefile uninstall <enter>
 ```
 
 should display:
-
 ```sh
 rm -vf /usr/bin/netware-worms
 removed '/usr/bin/netware-worms'
@@ -196,12 +188,10 @@ ldconfig
 ## Running the Screensaver
 
 you can execute the program directly as:
-
 ```sh
 ./netware-worms <enter>
 ```
 you can also add arguments to force number of cpus and a speedup divisor
-
 ```sh
 ./netware-worms cpus=8 speedup=4 <enter>
 ```

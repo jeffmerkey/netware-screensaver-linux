@@ -1,6 +1,6 @@
 /***************************************************************************
 *
-*   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+*   Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.
 *
 *   Licensed under the Lesser GNU Public License (LGPL) v2.1.
 *

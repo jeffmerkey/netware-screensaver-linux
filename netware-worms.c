@@ -1,6 +1,6 @@
 /***************************************************************************
 *
-*   Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+*   Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.
 *
 *   Portions adapted from xscreensaver loadsnake program is
 *   portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
        if (!strcasecmp(argv[i], "help") || !strcasecmp(argv[i], "-h") ||
 	   !strcasecmp(argv[i], "-help") || !strcasecmp(argv[i], "--help") ||
 	   !strcasecmp(argv[i], "/help") || !strcasecmp(argv[i], "/h")) {
-          printf("Copyright (c) 1997-2019 Jeff V. Merkey. All Rights Reserved.\n");
+          printf("Copyright (c) 1997-2022 Jeff V. Merkey. All Rights Reserved.\n");
           printf("USAGE:  netware-worms [cpus|speedup]\n");
           printf("        (i.e. netware-worms cpus=<num> speedup=<divisor>)\n");
           printf("examples:\n");

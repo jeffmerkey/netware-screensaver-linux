@@ -267,7 +267,7 @@ The SPECS directory contains the \*.spec files used to build RPM packages.  The 
 will contain the soure code archive file referred to in the \*.spec file used to build the 
 RPM package.
 
-To build the Screensaver using rpm cd into the /root/rpmbuild/SPECS/ directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
+To build the Screensaver using rpm, change directories (cd) into the /root/rpmbuild/SPECS/ directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
 ```sh
 rpmbuild -ba netware-screensaver.spec <enter>
 ```
@@ -360,8 +360,7 @@ The SPECS directory contains the \*.spec files used to build RPM packages.  The 
 will contain the soure code archive file referred to in the \*.spec file used to build the 
 RPM package.
 
-To build the Screensaver using debbuild cd into the /root/debbuild/SPECS/ directory and
-enter the following command:
+To build the Screensaver using debbuild, change directories (cd) into the /root/debbuild/SPECS/ directory and enter the following command:
 ```sh
 debbuild -vv -ba netware-screensaver.spec <enter>
 ```

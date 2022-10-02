@@ -336,7 +336,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 
 ## Issues / problems / help
 
-If you have any issues, please log them at <https://github.com/jeffmerkey/netware-screensaver-linux/getssl/issues>
+If you have any issues, please log them at <https://github.com/jeffmerkey/netware-screensaver-linux/issues>
 
 If you have any suggestions for improvements then pull requests are
 welcomed, or raise an issue.

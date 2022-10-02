@@ -329,6 +329,75 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 + exit 0
 ```
 ## Building as a Debian Package
+```sh
+This is debbuild, version 22.02.1\ndebconfigdir:/usr/lib/debbuild\nsysconfdir:/etc\n
+Lua: No Lua module loaded
+Executing (%prep): /bin/sh -e /var/tmp/deb-tmp.prep.20277
++ umask 022
++ cd /root/debbuild/BUILD
++ /bin/rm -rf netware-screensaver-1.21
++ /bin/gzip -dc /root/debbuild/SOURCES/netware-screensaver-1.21.tar.gz
++ /bin/tar -xf -
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd netware-screensaver-1.21
++ /bin/chmod -Rf a+rX,u+w,go-w .
++ exit 0
+Executing (%build): /bin/sh -e /var/tmp/deb-tmp.build.33585
++ umask 022
++ cd /root/debbuild/BUILD
++ cd netware-screensaver-1.21
++ /usr/bin/make
+g++ -g -c -O3  -fPIC -Wall libnetware-screensaver.c 
+ar r libnetware-screensaver.a libnetware-screensaver.o  
+ar: creating libnetware-screensaver.a
+ld -shared -lc -o libnetware-screensaver.so libnetware-screensaver.o  
+g++ -g -O3 netware-worms.c libnetware-screensaver.a -Wall -o netware-worms -lncursesw -lpthread -ltinfo
++ exit 0
+Executing (%install): /bin/sh -e /var/tmp/deb-tmp.install.73931
++ umask 022
++ cd /root/debbuild/BUILD
++ cd netware-screensaver-1.21
++ '[' -n /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64 -a /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64 '!=' / ']'
++ /bin/rm -rf /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64
++ /bin/mkdir -p /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/sbin
++ /bin/mkdir -p /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/bin
++ /bin/mkdir -p /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/include
++ /bin/mkdir -p /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/lib/x86_64-linux-gnu
++ /usr/bin/make DESTDIR=/root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64 NOCHK=1 LIBDIR=/usr/lib/x86_64-linux-gnu INCDIR=/usr/include BINDIR=/usr/bin install
+install -m 0755 netware-worms /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/bin
+install -m 0755 libnetware-screensaver.so /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/lib/x86_64-linux-gnu
+install -m 644 libnetware-screensaver.a /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/lib/x86_64-linux-gnu
+install -m 644 netware-worms.h /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/usr/include
++ exit 0
+Checking library requirements...
+dpkg-query: no path found matching pattern /lib64/libncursesw.so.6
+dpkg-query: no path found matching pattern /lib64/libtinfo.so.6
+dpkg-query: no path found matching pattern /lib64/libpthread.so.0
+dpkg-query: no path found matching pattern /lib64/libstdc++.so.6
+dpkg-query: no path found matching pattern /lib64/libm.so.6
+dpkg-query: no path found matching pattern /lib64/libgcc_s.so.1
+dpkg-query: no path found matching pattern /lib64/libc.so.6
+dpkg-query: no path found matching pattern /lib64/libdl.so.2
+dpkg-query: no path found matching pattern /lib64/libc.so.6
+Executing (package-creation): /bin/sh -e /var/tmp/deb-tmp.pkg.37356 for netware-screensaver
++ umask 022
++ cd /root/debbuild/BUILD
++ /usr/bin/fakeroot -- /usr/bin/dpkg-deb -b /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/main /root/debbuild/DEBS/amd64/netware-screensaver_1.21-1_amd64.deb
+dpkg-deb: warning: parsing file '/root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64/main/DEBIAN/control' near line 10 package 'netware-screensaver':
+ missing 'Maintainer' field
+dpkg-deb: warning: ignoring 1 warning about the control file(s)
+dpkg-deb: building package 'netware-screensaver' in '/root/debbuild/DEBS/amd64/netware-screensaver_1.21-1_amd64.deb'.
++ exit 0
+Executing (%clean): /bin/sh -e /var/tmp/deb-tmp.clean.95144
++ umask 022
++ cd /root/debbuild/BUILD
++ '[' /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64 '!=' / ']'
++ /bin/rm -rf /root/debbuild/BUILDROOT/netware-screensaver-1.21-1.amd64
++ exit 0
+Wrote source package netware-screensaver-1.21-1.sdeb in /root/debbuild/SDEBS.
+Wrote binary package netware-screensaver_1.21-1_amd64.deb in /root/debbuild/DEBS/amd64
+```
 
 ## Issues / problems / help
 

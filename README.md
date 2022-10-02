@@ -270,7 +270,7 @@ RPM package.
 To build the Screensaver using rpm cd into the /root/rpmbuild/SPECS directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
 ```sh
 rpmbuild -ba netware-screensaver.spec <enter>
-
+```
 The program should output the following if the build is successful and verify that the program
 wrote both the RPMS and SRPMS packages:
 
@@ -348,6 +348,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 + /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/netware-screensaver-1.21-1.el8.x86_64
 + exit 0
 ```
+
 ## Building as a Debian Package
 
 In order to build the screensaver as a Debian package, the program must be compressed into a tar.gz
@@ -363,7 +364,7 @@ To build the Screensaver using debbuild cd into the /root/debbuild/SPECS directo
 enter the following command:
 ```sh
 debbuild -vv -ba netware-screensaver.spec <enter>
-
+```
 The program should output the following if the build is successful and verify that the program
 wrote both the DEB and SDEB packages:
 

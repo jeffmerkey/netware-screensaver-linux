@@ -18,7 +18,7 @@ NetWare SMP style worm screesnsaver for Linux using ncurses
 
 ## Overview
 
-This code is Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.  Some portions were adapted from xscreensaver loadsnake program and is those portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>.  This software is licensed under the Lesser GNU Public License (LGPL) v2.1.
+This code is Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.  Some portions were adapted from xscreensaver loadsnake program and those portions are Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>.  This software is licensed under the Lesser GNU Public License (LGPL) v2.1.
 
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that

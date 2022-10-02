@@ -78,25 +78,21 @@ For example, the release v1.21 contains the following packages in the release se
 ### **Installing Binary Packages**
 
 To install the binary package with the rpm package manager for x86_64:
-
 ```sh
 rpm -i netware-screensaver-1.21-1.el8.x86_64.rpm
 ```
 
 To deinstall the RPM binary package:
-
 ```sh
 rpm -e netware-screensaver
 ```
 
 To install the binary package with the Debian dpkg package manager for amd64:
-
 ```sh
 dpkg -i netware-screensaver_1.21-1_amd64.deb 
 ```
 
 To deinstall the Debian dpkg binary package:
-
 ```sh
 dpkg -r netware-screensaver
 ```
@@ -105,7 +101,6 @@ dpkg -r netware-screensaver
 ### **Installing Source Packages**
 
 To install the source package with the rpm package manager:
-
 ```sh
 rpm -i netware-screensaver-1.21-1.el8.src.rpm
 ```
@@ -113,14 +108,12 @@ rpm -i netware-screensaver-1.21-1.el8.src.rpm
 platforms.  SuSe platforms install the source code files in /usr/src/packages/)*
 
 To install the binary package with the Debbuild package tool:
-
 ```sh
 debbuild -i netware-screensaver-1.21-1.sdeb
 ```
 *(Note: Debbuild installs the source code files in /root/debbuild/ as top directory)*
 
-For rebuilding or building Source Code Packages after you have installed them, please refer to the 
-following:
+For building or rebuilding RPMS or DEB Packages after you have installed them on your platform, , please refer to the following:
 
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)

@@ -11,14 +11,14 @@ NetWare SMP style worm screesnsaver for Linux using ncurses
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
-- [Installing and Deinstalling the RPM Package](#installing-and-deinstalling-the-rpm-package )
+- [Installing and Deinstalling the RPM Package](#installing-and-deinstalling-the-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
 - [Installing and Deinstalling the Debian Package](#installing-and-deinstalling-the-debian-package)
 - [Issues / Problems / Help](#issues-problems-help)
 
 ## Overview
 
-This code is Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.  Some portions were adapted from xscreensaver loadsnake program and is hose portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>.  This software is licensed under the Lesser GNU Public License (LGPL) v2.1.
+This code is Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.  Some portions were adapted from xscreensaver loadsnake program and is those portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>.  This software is licensed under the Lesser GNU Public License (LGPL) v2.1.
 
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that

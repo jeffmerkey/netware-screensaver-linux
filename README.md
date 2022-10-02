@@ -254,6 +254,26 @@ library "libnetware-screensaver.a"
 
 ## Building as an RPM Package
 
+In order to build the screensaver as an RPM, the program must be compressed into a tar.gz
+file and the tar.gz file named to match the versioning information contained in the 
+associated .spec file.  
+
+Spec files are special files which contain instructions on how to build a particular package
+from a source code archive.  On Red Hat and CentOS systems, RPMS are built in the /root/rpmbuild/
+ top directory.  SuSe systems build RPMS in the /usr/src/packages/ as top directory.  These 
+"top directories" will contain a BUILD, BUILDROOT, SPECS, RPMS, SRPMS, and SOURCES subdirectories.  
+
+The SPECS directory contains the \*.spec files used to build RPM packages.  The SOURCES subdirectory 
+will contain the soure code archive file referred to in the \*.spec file used to build the 
+RPM package.
+
+To build the Screensaver using rpm cd into the /root/rpmbuild/SPECS directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
+```sh
+rpmbuild -ba netware-screensaver.spec <enter>
+
+The program should output the following if the build is successful and verify that the program
+wrote both the RPMS and SRPMS packages:
+
 ```sh
 Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.oqGyza
 + umask 022
@@ -329,6 +349,24 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 + exit 0
 ```
 ## Building as a Debian Package
+
+In order to build the screensaver as a Debian package, the program must be compressed into a tar.gz
+file and the tar.gz file named to match the versioning information contained in the associated .spec file. Spec files are special files which contain instructions on how to build a particular package from a source code archive.  
+
+Debian Packages can be built using a utility called "debbuild" and use a similar top directory structure which is identical to that used by the RPM tool but using /root/debbuild/ as the "top directory".  These "top directories" will contain a BUILD, BUILDROOT, SPECS, RPMS, SRPMS, and SOURCES subdirectories and follows the same layout that is standard for RPM files.  
+
+The SPECS directory contains the \*.spec files used to build RPM packages.  The SOURCES subdirectory 
+will contain the soure code archive file referred to in the \*.spec file used to build the 
+RPM package.
+
+To build the Screensaver using debbuild cd into the /root/debbuild/SPECS directory and
+enter the following command:
+```sh
+debbuild -vv -ba netware-screensaver.spec <enter>
+
+The program should output the following if the build is successful and verify that the program
+wrote both the DEB and SDEB packages:
+
 ```sh
 This is debbuild, version 22.02.1\ndebconfigdir:/usr/lib/debbuild\nsysconfdir:/etc\n
 Lua: No Lua module loaded

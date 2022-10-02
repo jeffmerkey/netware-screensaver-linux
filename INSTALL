@@ -13,7 +13,7 @@ documentation.  No representations are made about the suitability of
 this software for any purpose.  It is provided "as is" without express or
 implied warranty.
 
-NetWare SMP style worm screesnsaver for Linux using ncurses
+NetWare SMP style worm screensaver for Linux using ncurses
 
 USAGE:  netware-worms [cpus|speedup]
     i.e. worm cpus=<num=8 to 256> speedup=<divisor=1|2|3|4>

@@ -1,7 +1,7 @@
 
 # netware-screensaver-linux <!-- omit in toc -->
 
-NetWare SMP style worm screesnsaver for Linux using ncurses
+NetWare SMP style worm screensaver for Linux using ncurses
 
 ## Table of Contents <!-- omit in toc -->
 - [Overview](#overview)

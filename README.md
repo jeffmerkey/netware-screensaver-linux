@@ -12,9 +12,7 @@ NetWare SMP style worm screesnsaver for Linux using ncurses
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
-- [Installing and Deinstalling the RPM Package](#installing-and-deinstalling-the-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
-- [Installing and Deinstalling the Debian Package](#installing-and-deinstalling-the-debian-package)
 - [Issues / Problems / Help](#issues-problems-help)
 
 ## Overview
@@ -61,6 +59,71 @@ this project.  Packages are provided in binary and source versions, and can be d
 installed directly or rebuilt for a different target architecture such as ARM64. Package types are
 Red Hat Package Manager (RPM) packages and Debian (DEB) packages for binary installation and 
 Source RPM packages (SRPMS) and Debbuild SDEB packages for source code installation.  
+
+RPM and DEB packages for each release include a binary architecture specific package
+and a source package which can be downloaded and built/rebuilt and which contains the source code.
+
+For example, the release v1.21 contains the following packages in the release section:
+
+### **RPM Based Packages (RedHat, CentOS, SuSe)**
+
+- [netware-screensaver-1.21-1.el8.src.rpm](https://github.com/jeffmerkey/netware-screensaver-linux/releases/download/v1.21/netware-screensaver-1.21-1.el8.src.rpm) 
+- [netware-screensaver-1.21-1.el8.x86_64.rpm](https://github.com/jeffmerkey/netware-screensaver-linux/releases/download/v1.21/netware-screensaver-1.21-1.el8.x86_64.rpm)
+
+### **Debian Based Packages (Debian, Ubuntu)**
+
+- [netware-screensaver-1.21-1.sdeb](https://github.com/jeffmerkey/netware-screensaver-linux/releases/download/v1.21/netware-screensaver-1.21-1.sdeb)
+- [netware-screensaver_1.21-1_amd64.deb](https://github.com/jeffmerkey/netware-screensaver-linux/releases/download/v1.21/netware-screensaver_1.21-1_amd64.deb) 
+
+### **Installing Binary Packages**
+
+To install the binary package with the rpm package manager for x86_64:
+
+```sh
+rpm -i netware-screensaver-1.21-1.el8.x86_64.rpm
+```
+
+To deinstall the RPM binary package:
+
+```sh
+rpm -e netware-screensaver
+```
+
+To install the binary package with the Debian dpkg package manager for amd64:
+
+```sh
+dpkg -i netware-screensaver_1.21-1_amd64.deb 
+```
+
+To deinstall the Debian dpkg binary package:
+
+```sh
+dpkg -r netware-screensaver
+```
+
+
+### **Installing Source Packages**
+
+To install the source package with the rpm package manager:
+
+```sh
+rpm -i netware-screensaver-1.21-1.el8.src.rpm
+```
+*(Note: rpm installs the source code files in /root/rpmbuild/ as top directory for RedHat and CentOS
+platforms.  SuSe platforms install the source code files in /usr/src/packages/)*
+
+To install the binary package with the Debbuild package tool:
+
+```sh
+debbuild -i netware-screensaver-1.21-1.sdeb
+```
+*(Note: Debbuild installs the source code files in /root/debbuild/ as top directory)*
+
+For rebuilding or building Source Code Packages after you have installed them, please refer to the 
+following:
+
+- [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
+- [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
 
 ## Building the Screensaver from Source
 
@@ -205,62 +268,6 @@ library "libnetware-screensaver.a"
 ## Building as an RPM Package
 
 ```sh
-netware-screensaver-1.21/
-netware-screensaver-1.21/.screenrc
-netware-screensaver-1.21/netware-worms.c
-netware-screensaver-1.21/COPYING
-netware-screensaver-1.21/README
-netware-screensaver-1.21/.gitignore
-netware-screensaver-1.21/.git/
-netware-screensaver-1.21/.git/hooks/
-netware-screensaver-1.21/.git/hooks/pre-applypatch.sample
-netware-screensaver-1.21/.git/hooks/pre-push.sample
-netware-screensaver-1.21/.git/hooks/commit-msg.sample
-netware-screensaver-1.21/.git/hooks/update.sample
-netware-screensaver-1.21/.git/hooks/applypatch-msg.sample
-netware-screensaver-1.21/.git/hooks/prepare-commit-msg.sample
-netware-screensaver-1.21/.git/hooks/pre-rebase.sample
-netware-screensaver-1.21/.git/hooks/post-update.sample
-netware-screensaver-1.21/.git/hooks/pre-commit.sample
-netware-screensaver-1.21/.git/refs/
-netware-screensaver-1.21/.git/refs/heads/
-netware-screensaver-1.21/.git/refs/tags/
-netware-screensaver-1.21/.git/refs/remotes/
-netware-screensaver-1.21/.git/refs/remotes/origin/
-netware-screensaver-1.21/.git/info/
-netware-screensaver-1.21/.git/info/refs
-netware-screensaver-1.21/.git/info/exclude
-netware-screensaver-1.21/.git/description
-netware-screensaver-1.21/.git/index
-netware-screensaver-1.21/.git/ORIG_HEAD
-netware-screensaver-1.21/.git/config
-netware-screensaver-1.21/.git/HEAD
-netware-screensaver-1.21/.git/COMMIT_EDITMSG
-netware-screensaver-1.21/.git/FETCH_HEAD
-netware-screensaver-1.21/.git/packed-refs
-netware-screensaver-1.21/.git/objects/
-netware-screensaver-1.21/.git/objects/pack/
-netware-screensaver-1.21/.git/objects/pack/pack-0b572c64ba3e068597888b5903b1c6c227c9de6f.pack
-netware-screensaver-1.21/.git/objects/pack/pack-0b572c64ba3e068597888b5903b1c6c227c9de6f.idx
-netware-screensaver-1.21/.git/objects/info/
-netware-screensaver-1.21/.git/objects/info/packs
-netware-screensaver-1.21/.git/objects/info/commit-graph
-netware-screensaver-1.21/.git/logs/
-netware-screensaver-1.21/.git/logs/refs/
-netware-screensaver-1.21/.git/logs/refs/remotes/
-netware-screensaver-1.21/.git/logs/refs/remotes/origin/
-netware-screensaver-1.21/.git/logs/refs/remotes/origin/master
-netware-screensaver-1.21/.git/logs/refs/heads/
-netware-screensaver-1.21/.git/logs/refs/heads/master
-netware-screensaver-1.21/.git/logs/HEAD
-netware-screensaver-1.21/.git/branches/
-netware-screensaver-1.21/Makefile
-netware-screensaver-1.21/netware-worms.h
-netware-screensaver-1.21/netware-screensaver.spec
-netware-screensaver-1.21/libnetware-screensaver.c
-```
-
-```sh
 Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.oqGyza
 + umask 022
 + cd /root/rpmbuild/BUILD
@@ -334,13 +341,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 + /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/netware-screensaver-1.21-1.el8.x86_64
 + exit 0
 ```
-
-
-## Installing and Deinstalling the RPM Package
-
 ## Building as a Debian Package
-
-## Installing and Deinstalling the Debian Package
 
 ## Issues / problems / help
 

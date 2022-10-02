@@ -55,7 +55,10 @@ load average is increasing.
 
 You can download precompiled RPM packages and Debian (DEB) packages from
 the [release page](https://github.com/jeffmerkey/netware-screensaver-linux/releases) for 
-this project.  Packages are provided in binary and source versions, and can be downloaded and 
+this project, or you can build the program from the git sources.   If you opt to build the 
+program from the git sources, refer to [Building the Screensaver from Source](#building-the-screensaver-from-source).
+ 
+Packages are provided in binary and source versions, and can be downloaded and 
 installed directly or rebuilt for a different target architecture such as ARM64. Package types are
 Red Hat Package Manager (RPM) packages and Debian (DEB) packages for binary installation and 
 Source RPM packages (SRPMS) and Debbuild SDEB packages for source code installation.  

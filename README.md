@@ -55,7 +55,7 @@ load average is increasing.
 ## Building the Screensaver from Source
 
 You must have the ncurses-devel packages installed in order to make
-ncurses apps on your system.  you can try "yum install ncurses\\\*" to get 
+ncurses apps on your system.  you can try "dnf install ncurses\\\*" to get 
 all of the ncurses packages for RedHat and CentOS systems.  This version 
 was developed on a Red Hat 7 / CentOS 7 system. 
 
@@ -146,8 +146,8 @@ To install the screensaver as a bash program which auto activates, use the progr
 "screen" coupled with Bash.  The "screen" program has support for adding and invoking
 terminal based screensavers under Bash.
 
-You can install the program on CentOS and RHEL with yum by
-typing "yum install screen" if the program is not installed by default.  You will need
+You can install the program on CentOS and RHEL with dnf by
+typing "dnf install screen" if the program is not installed by default.  You will need
 to create a .screenrc file in the user home directory (i.e. ~/.screenrc)
 which contains the following commands:
 

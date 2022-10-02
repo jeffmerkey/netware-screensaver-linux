@@ -151,7 +151,7 @@ typing "yum install screen" if the program is not installed by default.  You wil
 to create a .screenrc file in the user home directory (i.e. ~/.screenrc)
 which contains the following commands:
 
-Sample ~/.screenrc file
+**sample ~/.screenrc file**
 ```sh
 blankerprg netware-worms
 idle 60 blanker
@@ -164,7 +164,7 @@ You also need to modify the ~/.bash\_profile default bash configuation file to i
 screen by default after login.  Add the following command to the ~/.bash\_profile
 config file:
 
-Sample ~/.bash\_profile
+**sample ~/.bash\_profile**
 ```sh
 # .bash_profile
 # Get the aliases and functions

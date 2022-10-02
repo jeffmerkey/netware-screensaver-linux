@@ -62,7 +62,7 @@ was developed on a Red Hat 7 / CentOS 7 system.
 to make, type:
 
 ```sh
-# make -f Makefile <enter>
+make -f Makefile <enter>
 ```
 
 the build process should display:
@@ -78,7 +78,7 @@ g++ -g -O3 netware-worms.c libnetware-screensaver.a -Wall -o netware-worms -lncu
 to perform a clean build:
 
 ```sh
-# make -f Makefile clean <enter>
+make -f Makefile clean <enter>
 ```
 
 should display:
@@ -92,7 +92,7 @@ rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
 To install:
 
 ```sh
-# make -f Makefile install <enter>
+make -f Makefile install <enter>
 ```
 
 should display:
@@ -109,7 +109,7 @@ ldconfig
 To uninstall:
 
 ```sh
-# make -f Makefile uninstall <enter>
+make -f Makefile uninstall <enter>
 ```
 
 should display:
@@ -132,12 +132,12 @@ ldconfig
 you can execute the program directly as:
 
 ```sh
-# ./netware-worms <enter>
+./netware-worms <enter>
 ```
 you can also add arguments to force number of cpus and a speedup divisor
 
 ```sh
-# ./netware-worms cpus=8 speedup=4 <enter>
+./netware-worms cpus=8 speedup=4 <enter>
 ```
 
 ## Installing the Screensaver in the Bash Shell

@@ -41,7 +41,7 @@ load average is increasing.
 BUILD
 
 You must have the ncurses-devel packages installed in order to make
-ncurses apps on your system.  you can try "yum install ncurses*" to get 
+ncurses apps on your system.  you can try "yum install ncurses\*" to get 
 all of the ncurses packages for RedHat and CentOS systems.  This version 
 was developed on a Red Hat 7 / CentOS 7 system. 
 

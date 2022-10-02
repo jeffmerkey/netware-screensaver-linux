@@ -117,7 +117,7 @@ debbuild -i netware-screensaver-1.21-1.sdeb
 ```
 *(Note: Debbuild installs the source code files in /root/debbuild/ as top directory)*
 
-For building or rebuilding RPMS or DEB Packages after you have installed them on your platform, refer to the following:
+For building or rebuilding RPMS or DEB Packages after you have installed the associated source packages on your platform, refer to the following:
 
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)

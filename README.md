@@ -330,7 +330,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 
 ## Installing and Deinstalling the RPM Package
 
-## Building as a Debian Ppackage
+## Building as a Debian Package
 
 ## Installing and Deinstalling the Debian Package
 

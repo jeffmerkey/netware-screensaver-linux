@@ -5,8 +5,8 @@ NetWare SMP style worm screesnsaver for Linux using ncurses
 
 ## Table of Contents <!-- omit in toc -->
 - [Overview](#overview)
-- [Building the Screensaver](#building-the-screensaver)
-- [Installing and Uninstalling the Screensaver](#installing-and-uninstalling-the-screensaver)
+- [Building the Screensaver from Source](#building-the-screensaver-from-source)
+- [Installing and Uninstalling the Screensaver from Source](#installing-and-uninstalling-the-screensaver-from-source)
 - [Running the Screensaver](#running-the-screensaver)
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
 - [Using Libraries](#using-libraries)
@@ -52,7 +52,7 @@ processor.  As the overall system load average across the system increases,
 the base clock rate for all the worms increases slightly to indicate 
 load average is increasing.
 
-## Building the Screensaver
+## Building the Screensaver from Source
 
 You must have the ncurses-devel packages installed in order to make
 ncurses apps on your system.  you can try "yum install ncurses\\\*" to get 
@@ -87,7 +87,7 @@ should display:
 rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
 ```
 
-## Installing and Uninstalling the Screensaver
+## Installing and Uninstalling the Screensaver from Source
 
 To install:
 

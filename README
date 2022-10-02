@@ -1,4 +1,4 @@
-Copyright(c) Jeff V. Merkey 1997-2019.  All rights reserved.
+Copyright(c) Jeff V. Merkey 1997-2022.  All rights reserved.
 
 Some portions adapted from xscreensaver loadsnake program and is
 portions Copyright (c) 2007-2011 Cosimo Streppone <cosimo@cpan.org>
@@ -55,7 +55,7 @@ g++ -g -c -O3  -fPIC -Wall libnetware-screensaver.c
 ar r libnetware-screensaver.a libnetware-screensaver.o  
 ar: creating libnetware-screensaver.a
 ld -shared -lc -o libnetware-screensaver.so libnetware-screensaver.o  
-g++ -g -O3 netware-worms.c -Wall -o netware-worms -lncursesw -lpthread libnetware-screensaver.a
+g++ -g -O3 netware-worms.c libnetware-screensaver.a -Wall -o netware-worms -lncursesw -lpthread -ltinfo
 
 to perform a clean build:
 
@@ -64,7 +64,6 @@ to perform a clean build:
 should display:
 
 rm -rf *.o libnetware-screensaver.a libnetware-screensaver.so netware-worms
-
 
 INSTALLING/UNINSTALLING
 
@@ -75,8 +74,8 @@ To install:
 should display:
 
 install -m 0755 netware-worms /usr/bin
-install -m 644 libnetware-screensaver.so /usr/lib
-install -m 644 libnetware-screensaver.a /usr/lib
+install -m 0755 libnetware-screensaver.so /usr/lib64
+install -m 644 libnetware-screensaver.a /usr/lib64
 install -m 644 netware-worms.h /usr/include
 ldconfig
 ldconfig
@@ -88,13 +87,13 @@ To uninstall:
 should display:
 
 rm -vf /usr/bin/netware-worms
-removed ‘/usr/bin/netware-worms’
-rm -vf /usr/lib/libnetware-screensaver.so
-removed ‘/usr/lib/libnetware-screensaver.so’
-rm -vf /usr/lib/libnetware-screensaver.a
-removed ‘/usr/lib/libnetware-screensaver.a’
+removed '/usr/bin/netware-worms'
+rm -vf /usr/lib64/libnetware-screensaver.so
+removed '/usr/lib64/libnetware-screensaver.so'
+rm -vf /usr/lib64/libnetware-screensaver.a
+removed '/usr/lib64/libnetware-screensaver.a'
 rm -vf /usr/include/netware-worms.h
-removed ‘/usr/include/netware-worms.h’
+removed '/usr/include/netware-worms.h'
 ldconfig
 ldconfig
 
@@ -141,7 +140,8 @@ fi
 # User specific environment and startup programs
 PATH=$PATH:$HOME/bin
 export PATH
-/bin/screen  <------------ add this line to the default .bash_profile config file.
+/bin/screen  <------------ add this line to the default .bash_profile config file.  
+                           It must be the last line in the file.
 
 After you have configured these two files, logout and log back into the system for
 whichever account you have enabled and the screensaver will auto-activate after 

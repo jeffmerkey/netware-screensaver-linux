@@ -5,6 +5,7 @@ NetWare SMP style worm screesnsaver for Linux using ncurses
 
 ## Table of Contents <!-- omit in toc -->
 - [Overview](#overview)
+- [Quick Start Guide](#quick-start-guide)
 - [Building the Screensaver from Source](#building-the-screensaver-from-source)
 - [Installing and Uninstalling the Screensaver from Source](#installing-and-uninstalling-the-screensaver-from-source)
 - [Running the Screensaver](#running-the-screensaver)
@@ -51,6 +52,15 @@ the faster it moves across the screen corresponding to that particular
 processor.  As the overall system load average across the system increases,
 the base clock rate for all the worms increases slightly to indicate 
 load average is increasing.
+
+## Quick Start Guide 
+
+You can download precompiled RPM packages and Debian (DEB) packages from
+the [release page](https://github.com/jeffmerkey/netware-screensaver-linux/releases) for 
+this project.  Packages are provided in binary and source versions, and can be downloaded and 
+installed directly or rebuilt for a different target architecture such as ARM64. Package types are
+Red Hat Package Manager (RPM) packages and Debian (DEB) packages for binary installation and 
+Source RPM packages (SRPMS) and Debbuild SDEB packages for source code installation.  
 
 ## Building the Screensaver from Source
 

@@ -13,7 +13,7 @@ NetWare SMP style worm screensaver for Linux using ncurses
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
-- [Issues / Problems / Help](#issues-problems-help)
+- [Issues / Problems / Help](#issues--problems--help)
 
 ## Overview
 

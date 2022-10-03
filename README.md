@@ -266,7 +266,15 @@ from a source code archive.  On Red Hat and CentOS systems, RPMS are built in th
 The SPECS directory contains the \*.spec files used to build RPMS and SRPMS packages.  The SOURCES subdirectory will contain the soure code archive file referred to in the \*.spec file used to build the 
 RPM package.
 
-To build the Screensaver using rpm, change directories (cd) into the /root/rpmbuild/SPECS/ directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
+See the [Quick Start Guide](#quick-start-guide) on instructions for installing the 
+source rpm which installs both the .spec file and source archive file (tar.gz) into 
+the rpm build top directory (i.e. /root/rpmbuild/).  You should have previously 
+installed the src.rpm file before attempting to build the rpm.  You can also 
+manually install the .spec file into the \<top directory\>/SPECS/ directory and 
+the source code tarball in the \<top directory\/SOURCES/ directory, then attempt 
+to build the rpm package.
+
+To build the Screensaver using the rpm tool, change directories (cd) into the /root/rpmbuild/SPECS/ directory (/usr/src/packages/SPECS/ for SuSe) and enter the following command:
 ```sh
 rpmbuild -ba netware-screensaver.spec <enter>
 ```
@@ -357,6 +365,13 @@ Debian Packages can be built using a utility called "debbuild" and use a top dir
 
 The SPECS directory contains the \*.spec files used to build DEB and SDEB packages.  The SOURCES subdirectory will contain the soure code archive file referred to in the \*.spec file used to build the 
 DEB and SDEB packages.
+
+See the [Quick Start Guide](#quick-start-guide) on instructions for installing the 
+source SDEB which installs both the .spec file and source archive file (tar.gz) into 
+the debbuild top directory (i.e. /root/debbuild/).  You should have previously installed 
+the SDEB file before attempting to build the rpm.  You can also manually install the 
+.spec file into the \<top directory\>/SPECS/ directory and the source code tarball 
+in the \<top directory\/SOURCES/ directory, then attempt to build the DEB package.
 
 To build the Screensaver using debbuild, change directories (cd) into the /root/debbuild/SPECS/ directory and enter the following command:
 ```sh

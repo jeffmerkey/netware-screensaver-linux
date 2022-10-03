@@ -237,7 +237,7 @@ export PATH
 /bin/screen  
 ```
 It must be the last line in the file since following login, the /bin/screen 
-program will be executed following login.  
+program will be executed and run as a transparent bash shell. 
 
 After you have configured these two files, logout and log back into the system for
 whichever account you have enabled and the screensaver will auto-activate after 

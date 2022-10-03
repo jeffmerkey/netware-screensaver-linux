@@ -369,9 +369,10 @@ DEB and SDEB packages.
 See the [Quick Start Guide](#quick-start-guide) on instructions for installing the 
 source SDEB which installs both the .spec file and source archive file (tar.gz) into 
 the debbuild top directory (i.e. /root/debbuild/).  You should have previously installed 
-the SDEB file before attempting to build the rpm.  You can also manually install the 
-.spec file into the \<top directory\>/SPECS/ directory and the source code tarball 
-in the \<top directory\/SOURCES/ directory, then attempt to build the DEB package.
+the SDEB file before attempting to build the DEB package.  You can also manually 
+install the .spec file into the \<top directory\>/SPECS/ directory and the source 
+code tarball in the \<top directory\/SOURCES/ directory, then attempt to build the 
+DEB package.
 
 To build the Screensaver using debbuild, change directories (cd) into the /root/debbuild/SPECS/ directory and enter the following command:
 ```sh

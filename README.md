@@ -221,8 +221,8 @@ Please note the idle command which specifies how many seconds to delay before in
 the screensaver (in this example it is 60 seconds)
 
 You also need to modify the ~/.bash\_profile default bash configuation file to invoke
-screen by default after login.  Add the following command to the ~/.bash\_profile
-config file:
+screen by default after login.  Add the /bin/screen command to the end of the 
+~/.bash\_profile config file:
 
 **sample ~/.bash\_profile**
 ```sh
@@ -234,9 +234,10 @@ fi
 # User specific environment and startup programs
 PATH=$PATH:$HOME/bin
 export PATH
-/bin/screen  <------------ add this line to the default .bash_profile config file.  
-                           It must be the last line in the file.
+/bin/screen  
 ```
+It must be the last line in the file since following login, the /bin/screen 
+program will be executed following login.  
 
 After you have configured these two files, logout and log back into the system for
 whichever account you have enabled and the screensaver will auto-activate after 

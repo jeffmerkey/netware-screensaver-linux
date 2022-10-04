@@ -262,7 +262,7 @@ associated .spec file.
 Spec files are special files which contain instructions on how to build a particular package
 from a source code archive.  On Red Hat and CentOS systems, RPMS are built in the /root/rpmbuild/
  top directory.  SuSe systems build RPMS in the /usr/src/packages/ as top directory.  These 
-"top directories" will contain a BUILD, BUILDROOT, SPECS, RPMS, SRPMS, and SOURCES subdirectories.  
+"top directories" will contain BUILD, BUILDROOT, SPECS, RPMS, SRPMS, and SOURCES subdirectories.  
 
 The SPECS directory contains the \*.spec files used to build RPMS and SRPMS packages.  The SOURCES subdirectory will contain the soure code archive file referred to in the \*.spec file used to build the 
 RPM package.
@@ -362,7 +362,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.PbtDr4
 In order to build the screensaver as a Debian package, the program must be compressed into a tar.gz
 file and the tar.gz file named to match the versioning information contained in the associated .spec file. Spec files are special files which contain instructions on how to build a particular package from a source code archive.  
 
-Debian Packages can be built using a utility called "debbuild" and use a top directory structure which is similar to that used by the RPM tool but using /root/debbuild/ as the "top directory".  These "top directories" will contain a BUILD, BUILDROOT, SPECS, DEBS, SDEBS, and SOURCES subdirectories and follows a similar layout that is used for RPM files.  
+Debian Packages can be built using a utility called "debbuild" and use a top directory structure which is similar to that used by the RPM tool but using /root/debbuild/ as the "top directory".  These "top directories" will contain BUILD, BUILDROOT, SPECS, DEBS, SDEBS, and SOURCES subdirectories and follows a similar layout that is used for RPM files.  
 
 The SPECS directory contains the \*.spec files used to build DEB and SDEB packages.  The SOURCES subdirectory will contain the soure code archive file referred to in the \*.spec file used to build the 
 DEB and SDEB packages.

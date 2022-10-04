@@ -338,13 +338,13 @@ static int get_processors(void)
 
 static int get_cpu_load(STATE *st, int cpu)
 {
-    static char line[100], *s;
+    static char line[1024], *s;
     unsigned long long p_usr = 0, p_nice = 0, p_sys  = 0, p_idle = 0;
     unsigned long long load = 0, idle = 0, util = 0, len;
     unsigned long long p_io = 0, p_irq = 0, p_sirq = 0;
     unsigned long long p_steal = 0, p_guest = 0, p_guest_nice = 0;
     FILE *f;
-    char src[100] = "\0";
+    char src[1024] = "\0";
 
     if (cpu > st->cpus)
         return 0;
@@ -361,7 +361,7 @@ static int get_cpu_load(STATE *st, int cpu)
     {
         while (!feof(f) && !load)
 	{
-            s = fgets(line, 98, f);
+            s = fgets(line, sizeof(line) - 1, f);
             if (s && !strncasecmp(src, line, len))
 	    {
 		p_usr  = st->usr[cpu];

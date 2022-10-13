@@ -111,7 +111,7 @@ rpm -i netware-screensaver-1.21-1.el8.src.rpm
 *(Note: rpm installs the source code files in /root/rpmbuild/ as top directory for RedHat and CentOS
 platforms.  SuSe platforms install the source code files in /usr/src/packages/)*
 
-To install the binary package with the Debbuild package tool:
+To install the source package with the Debbuild package tool:
 ```sh
 debbuild -i netware-screensaver-1.21-1.sdeb
 ```

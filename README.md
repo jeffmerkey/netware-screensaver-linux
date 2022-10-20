@@ -211,6 +211,15 @@ You can install the program on CentOS and RHEL with dnf by typing "dnf install s
 if the program is not installed by default.  On Debian based systems you can install
 the program with "apt-get install screen".
 
+Red Hat based systems can use yum or dnf to install the screen files:
+```sh
+dnf install screen 
+```
+Debian based systems can use apt or apt-get to install the screen files:
+```sh
+apt-get install screen 
+```
+
 You should also install at the same time the terminfo and termcap files to support the "screen" 
 terminal type for ncurses to avoid getting "unknown terminal type" errors when attempting to 
 log into the system over ssh.  
@@ -219,7 +228,6 @@ Red Hat based systems can use yum or dnf to install the terminfo files:
 ```sh
 dnf install ncurses-term 
 ```
-
 Debian based systems can use apt or apt-get to install the terminfo files:
 ```sh
 apt-get install ncurses-term 

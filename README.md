@@ -10,7 +10,7 @@ NetWare SMP style worm screensaver for Linux using ncurses
 - [Installing and Uninstalling the Screensaver from Source](#installing-and-uninstalling-the-screensaver-from-source)
 - [Running the Screensaver](#running-the-screensaver)
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
-- [ssh client returns "unknown terminal type" when remotely logging into the system](ssh-client-returns-unknown-terminal-type-when-remotely-logging-into-the-system)
+- [ssh client returns "unknown terminal type" when remotely logging into the system](#ssh-client-returns-unknown-terminal-type-when-remotely-logging-into-the-system)
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)

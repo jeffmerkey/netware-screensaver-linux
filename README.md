@@ -270,7 +270,7 @@ whichever account you have enabled and the screensaver will auto-activate after
 a terminal based screensaver is you will need to type the "exit" command twice 
 in order to logout of the session. 
 
-## ssh client returns "unknown terminal type" when remotely logging into the system
+## ssh client returns unknown terminal type when remotely logging into the system
 
 Some older CentOS and Red Hat Enterprise Linux distributions do not properly detect
 or parse aliased terminal types such as "screen.xterm-256color" when using ssh to remotely

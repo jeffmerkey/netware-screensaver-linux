@@ -10,7 +10,7 @@ NetWare SMP style worm screensaver for Linux using ncurses
 - [Installing and Uninstalling the Screensaver from Source](#installing-and-uninstalling-the-screensaver-from-source)
 - [Running the Screensaver](#running-the-screensaver)
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
-- [ssh client returns "unknown terminal type" when remotely logging into the system](#ssh-client-returns-"unknown-terminal-type"-when-remotely-logging-into-the-system)
+- [ssh client returns "unknown terminal type" when remotely logging into the system](#ssh-client-returns-unknown-terminal-type-when-remotely-logging-into-the-system)
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
@@ -270,7 +270,7 @@ whichever account you have enabled and the screensaver will auto-activate after
 a terminal based screensaver is you will need to type the "exit" command twice 
 in order to logout of the session. 
 
-## ssh client returns "unknown terminal type" when remotely logging into the system
+## ssh client returns unknown terminal type when remotely logging into the system
 
 Some older CentOS and Red Hat Enterprise Linux distributions do not properly detect
 or parse aliased terminal types such as "screen.xterm-256color" when using ssh to remotely

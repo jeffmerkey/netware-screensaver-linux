@@ -277,7 +277,7 @@ export it if necessary.
 if [[ "$TERM" == "screen.xterm-256color" ]]; then
    export TERM=screen-256color
 fi
-
+```
 The "screen.term-256color" terminal type is the most common type seen when this ssh error 
 occurs and is caused by the ncurses library terminfo and termcap files either not installed 
 or properly configured.

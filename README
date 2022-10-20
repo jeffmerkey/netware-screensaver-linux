@@ -285,8 +285,10 @@ ncurses-term package.
 
 Add the following to the bottom of the .bashrc file to check the
 terminal type, then change and export it if necessary.
-```sh if [[ “$TERM” == “screen.xterm-256color” ]]; then export
-TERM=screen-256color fi
+
+    if [[ "$TERM" == "screen.xterm-256color" ]]; then
+       export TERM=screen-256color
+    fi
 
 The “screen.term-256color” terminal type is the most common type seen
 when this ssh error occurs and is caused by the ncurses library terminfo

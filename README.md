@@ -10,6 +10,7 @@ NetWare SMP style worm screensaver for Linux using ncurses
 - [Installing and Uninstalling the Screensaver from Source](#installing-and-uninstalling-the-screensaver-from-source)
 - [Running the Screensaver](#running-the-screensaver)
 - [Installing the Screensaver in the Bash Shell](#installing-the-screensaver-in-the-bash-shell)
+- [ssh client returns "unknown terminal type" when remotely logging into the system](ssh-client-returns-"unknown-terminal-type"-when-remotely-logging-into-the-system)
 - [Using Libraries](#using-libraries)
 - [Building the Screensaver as an RPM Package (Redhat/CentOS/SuSe)](#building-as-an-rpm-package)
 - [Building the Screensaver as a Debian Package (Debian/Ubuntu)](#building-as-a-debian-package)
@@ -206,9 +207,25 @@ To install the screensaver as a bash program which auto activates, use the progr
 "screen" coupled with Bash.  The "screen" program has support for adding and invoking
 terminal based screensavers under Bash.
 
-You can install the program on CentOS and RHEL with dnf by
-typing "dnf install screen" if the program is not installed by default.  You will need
-to create a .screenrc file in the user home directory (i.e. ~/.screenrc)
+You can install the program on CentOS and RHEL with dnf by typing "dnf install screen" 
+if the program is not installed by default.  On Debian based systems you can install
+the program with "apt-get install screen".
+
+You should also install at the same time the terminfo and termcap files to support the "screen" 
+terminal type for ncurses to avoid getting "unknown terminal type" errors when attempting to 
+log into the system over ssh.  
+
+Red Hat based systems can use yum or dnf to install the terminfo files:
+```sh
+dnf install ncurses-term 
+```
+
+Debian based systems can use apt or apt-get to install the terminfo files:
+```sh
+apt-get install ncurses-term 
+```
+
+You will need to create a .screenrc file in the user home directory (i.e. ~/.screenrc)
 which contains the following commands:
 
 **sample ~/.screenrc file**
@@ -245,6 +262,49 @@ whichever account you have enabled and the screensaver will auto-activate after
 a terminal based screensaver is you will need to type the "exit" command twice 
 in order to logout of the session. 
 
+## ssh client returns "unknown terminal type" when remotely logging into the system
+
+Some older CentOS and Red Hat Enterprise Linux distributions do not properly detect
+or parse aliased terminal types such as "screen.xterm-256color" when using ssh to remotely
+access a system.  This results in an "unknown terminal type" error being returned after
+logging in.  This error can be fixed by changing the ~/.bashrc file for the affected account
+and add a check for the term type, then export a terminal type that matches one of the 
+supported terminal types in the ncurses-term package.
+
+Add the following to the bottom of the .bashrc file to check the terminal type, then change and
+export it if necessary.  
+```sh
+if [[ "$TERM" == "screen.xterm-256color" ]]; then
+   export TERM=screen-256color
+fi
+
+The "screen.term-256color" terminal type is the most common type seen when this ssh error 
+occurs and is caused by the ncurses library terminfo and termcap files either not installed 
+or properly configured.
+
+If you encounter this error and are running on version CentOS/RHEL 7 or earlier, then 
+edit your .bashrc file to append the terminal type and remap check as shown in the example 
+below:
+
+**sample ~/.bashrc**
+```sh
+# .bashrc
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# add the following 3 lines to the end of the .bashrc file  
+if [[ "$TERM" == "screen.xterm-256color" ]]; then          
+   export TERM=screen-256color                              
+fi                                                         
+```
 
 ## Using Libraries
 

@@ -278,9 +278,9 @@ if [[ "$TERM" == "screen.xterm-256color" ]]; then
    export TERM=screen-256color
 fi
 ```
-The "screen.term-256color" terminal type is the most common type seen when this ssh error 
-occurs and is caused by the ncurses library terminfo and termcap files either not installed 
-or properly configured.
+The "screen.term-256color" terminal type is the most common terminal type seen when this ssh error 
+occurs and it is caused by the ncurses library terminfo and termcap files either not being installed 
+or improperly configured.
 
 If you encounter this error and are running on version CentOS/RHEL 7 or earlier, then 
 edit your .bashrc file to append the terminal type and remap check as shown in the example 

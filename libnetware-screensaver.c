@@ -422,6 +422,7 @@ static int get_cpu_load(STATE *st, int cpu)
 		    // subtract idle cycles from load and mulitply * 100
 		    // to express as percentage
 		    util = (load - idle) * 100 / load;
+		    idle = (idle * 100) / load;
                     break;
                 }
                 else

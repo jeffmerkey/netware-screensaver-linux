@@ -2,7 +2,7 @@
 %define debug_package %{nil}
 
 Summary:          Netware SMP Style Screensaver for Linux
-License:          LGPL
+License:          MIT
 Name:             netware-screensaver
 Version:          1.22
 Release:          1%{?dist}

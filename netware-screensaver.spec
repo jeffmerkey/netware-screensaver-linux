@@ -4,7 +4,7 @@
 Summary:          Netware SMP Style Screensaver for Linux
 License:          MIT
 Name:             netware-screensaver
-Version:          1.22
+Version:          1.23
 Release:          1%{?dist}
 
 URL:              https://www.github.com/jeffmerkey/netware-screensaver-linux
